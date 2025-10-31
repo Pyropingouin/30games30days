@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgax831n755ki"]
+
+[ext_resource type="Script" uid="uid://d0phcvxsvw0gf" path="res://game_components/fruitDualGame/cherry.gd" id="1_pp2jy"]
+[ext_resource type="Texture2D" uid="uid://ckui5my5pm8q8" path="res://art/fruitDualGame/Fruits_Separated/Cherry.png" id="2_pp2jy"]
+
+[sub_resource type="Animation" id="Animation_3k00p"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_w4h7b"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.57577664, 0.12310707, 1.4439226e-07, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pp2jy"]
+resource_name = "idle_2"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6u1fn"]
+_data = {
+&"RESET": SubResource("Animation_w4h7b"),
+&"idle": SubResource("Animation_3k00p"),
+&"idle_2": SubResource("Animation_pp2jy")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3r72g"]
+radius = 24.186773
+
+[node name="cherry" type="CharacterBody2D"]
+script = ExtResource("1_pp2jy")
+
+[node name="wholeSprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="wholeSprite"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_pp2jy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wholeSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_6u1fn")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_3r72g")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

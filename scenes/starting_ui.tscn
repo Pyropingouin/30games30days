@@ -1,0 +1,230 @@
+[gd_scene load_steps=3 format=3 uid="uid://clfcsmgbtw6iq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywc65"]
+font_size = 30
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jakv2"]
+font_size = 60
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[node name="starting_ui" type="Node2D"]
+
+[node name="InGameUI" type="CanvasLayer" parent="."]
+
+[node name="ButtonQuit" type="Node2D" parent="InGameUI"]
+position = Vector2(345, -364)
+
+[node name="bg" type="ColorRect" parent="InGameUI/ButtonQuit"]
+offset_left = 511.0
+offset_top = 378.0
+offset_right = 670.0
+offset_bottom = 445.0
+color = Color(0, 0, 0, 1)
+
+[node name="bg2" type="ColorRect" parent="InGameUI/ButtonQuit/bg"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 154.0
+offset_bottom = 62.0
+color = Color(0.27450982, 0.39215687, 1, 1)
+
+[node name="text" type="Label" parent="InGameUI/ButtonQuit"]
+offset_left = 560.0
+offset_top = 379.0
+offset_right = 619.0
+offset_bottom = 439.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_ywc65")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonQuit" type="Button" parent="InGameUI/ButtonQuit"]
+offset_left = 522.0
+offset_top = 383.0
+offset_right = 675.0
+offset_bottom = 444.0
+theme_type_variation = &"FlatButton"
+
+[node name="StartScreen" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="StartScreen"]
+offset_right = 1152.0
+offset_bottom = 645.0
+
+[node name="bg" type="ColorRect" parent="StartScreen"]
+offset_left = 393.0
+offset_top = 117.0
+offset_right = 781.0
+offset_bottom = 603.0
+color = Color(0, 0, 0, 1)
+
+[node name="bg2" type="ColorRect" parent="StartScreen/bg"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 378.0
+offset_bottom = 476.0
+
+[node name="Title" type="Label" parent="StartScreen"]
+offset_left = 404.0
+offset_top = 116.0
+offset_right = 777.0
+offset_bottom = 245.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_jakv2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Label" parent="StartScreen"]
+offset_left = 415.0
+offset_top = 248.0
+offset_right = 770.0
+offset_bottom = 380.0
+text = "game description is great"
+label_settings = SubResource("LabelSettings_ywc65")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonPlay" type="Node2D" parent="StartScreen"]
+
+[node name="bg" type="ColorRect" parent="StartScreen/ButtonPlay"]
+offset_left = 511.0
+offset_top = 378.0
+offset_right = 670.0
+offset_bottom = 445.0
+color = Color(0, 0, 0, 1)
+
+[node name="bg2" type="ColorRect" parent="StartScreen/ButtonPlay/bg"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 154.0
+offset_bottom = 62.0
+color = Color(0.27450982, 0.39215687, 1, 1)
+
+[node name="text" type="Label" parent="StartScreen/ButtonPlay"]
+offset_left = 560.0
+offset_top = 379.0
+offset_right = 619.0
+offset_bottom = 439.0
+text = "play"
+label_settings = SubResource("LabelSettings_ywc65")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonPlay" type="Button" parent="StartScreen/ButtonPlay"]
+offset_left = 513.0
+offset_top = 381.0
+offset_right = 666.0
+offset_bottom = 442.0
+theme_type_variation = &"FlatButton"
+
+[node name="ButtonQuit" type="Node2D" parent="StartScreen"]
+position = Vector2(-1, 100)
+
+[node name="bg" type="ColorRect" parent="StartScreen/ButtonQuit"]
+offset_left = 511.0
+offset_top = 378.0
+offset_right = 670.0
+offset_bottom = 445.0
+color = Color(0, 0, 0, 1)
+
+[node name="bg2" type="ColorRect" parent="StartScreen/ButtonQuit/bg"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 154.0
+offset_bottom = 62.0
+color = Color(0.27450982, 0.39215687, 1, 1)
+
+[node name="text" type="Label" parent="StartScreen/ButtonQuit"]
+offset_left = 560.0
+offset_top = 379.0
+offset_right = 619.0
+offset_bottom = 439.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_ywc65")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonQuit" type="Button" parent="StartScreen/ButtonQuit"]
+offset_left = 513.0
+offset_top = 381.0
+offset_right = 666.0
+offset_bottom = 442.0
+theme_type_variation = &"FlatButton"
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="GameOverScreen"]
+offset_right = 1152.0
+offset_bottom = 645.0
+
+[node name="bg" type="ColorRect" parent="GameOverScreen"]
+offset_left = 393.0
+offset_top = 117.0
+offset_right = 781.0
+offset_bottom = 603.0
+color = Color(0, 0, 0, 1)
+
+[node name="bg2" type="ColorRect" parent="GameOverScreen/bg"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 378.0
+offset_bottom = 476.0
+
+[node name="Title" type="Label" parent="GameOverScreen"]
+offset_left = 399.0
+offset_top = 194.0
+offset_right = 765.0
+offset_bottom = 323.0
+text = "Game over :("
+label_settings = SubResource("LabelSettings_jakv2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonQuit" type="Node2D" parent="GameOverScreen"]
+position = Vector2(6, 39)
+
+[node name="bg" type="ColorRect" parent="GameOverScreen/ButtonQuit"]
+offset_left = 511.0
+offset_top = 378.0
+offset_right = 670.0
+offset_bottom = 445.0
+color = Color(0, 0, 0, 1)
+
+[node name="bg2" type="ColorRect" parent="GameOverScreen/ButtonQuit/bg"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 154.0
+offset_bottom = 62.0
+color = Color(0.27450982, 0.39215687, 1, 1)
+
+[node name="text" type="Label" parent="GameOverScreen/ButtonQuit"]
+offset_left = 560.0
+offset_top = 379.0
+offset_right = 619.0
+offset_bottom = 439.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_ywc65")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonQuit" type="Button" parent="GameOverScreen/ButtonQuit"]
+offset_left = 513.0
+offset_top = 381.0
+offset_right = 666.0
+offset_bottom = 442.0
+theme_type_variation = &"FlatButton"

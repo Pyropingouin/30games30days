@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2rblcffoy6mj"]
+
+[ext_resource type="PackedScene" uid="uid://btbobgreiqpik" path="res://game_components/fruitDualGame/apple.tscn" id="1_o7fsp"]
+[ext_resource type="Texture2D" uid="uid://b1hx65ils2etj" path="res://art/fruitDualGame/Fruits_Separated/Banana.png" id="2_cn8du"]
+
+[node name="banana" instance=ExtResource("1_o7fsp")]
+
+[node name="Sprite2D" parent="wholeSprite" index="0"]
+texture = ExtResource("2_cn8du")
+
+[node name="Sprite2D" parent="sliceRight/half1/half1" index="0"]
+texture = ExtResource("2_cn8du")
+
+[node name="Sprite2D" parent="sliceRight/half2/half1" index="0"]
+texture = ExtResource("2_cn8du")
+
+[node name="Sprite2D" parent="sliceDown/half1/half1" index="0"]
+texture = ExtResource("2_cn8du")
+
+[node name="Sprite2D" parent="sliceDown/half2/half1" index="0"]
+texture = ExtResource("2_cn8du")

@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://btbobgreiqpik"]
+
+[ext_resource type="Texture2D" uid="uid://c6osujiyn2xvq" path="res://art/fruitDualGame/Fruits_Separated/Apple.png" id="1_8tl6h"]
+[ext_resource type="Script" uid="uid://c48xnioi31fsd" path="res://game_components/fruitDualGame/fruit.gd" id="1_nsn7a"]
+[ext_resource type="Script" uid="uid://dk650brfvrk45" path="res://game_components/fruitDualGame/half.gd" id="2_jyxsr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tl6h"]
+size = Vector2(46.5, 6.75)
+
+[node name="apple" type="CharacterBody2D"]
+script = ExtResource("1_nsn7a")
+
+[node name="wholeSprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="wholeSprite"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_8tl6h")
+
+[node name="sliceRight" type="Node2D" parent="."]
+visible = false
+
+[node name="half1" type="CharacterBody2D" parent="sliceRight"]
+script = ExtResource("2_jyxsr")
+
+[node name="half1" type="ColorRect" parent="sliceRight/half1"]
+clip_children = 1
+offset_left = -89.0
+offset_top = -63.0
+offset_right = 86.0
+offset_bottom = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceRight/half1/half1"]
+texture_filter = 1
+position = Vector2(89, 63)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8tl6h")
+
+[node name="half2" type="CharacterBody2D" parent="sliceRight"]
+script = ExtResource("2_jyxsr")
+
+[node name="half1" type="ColorRect" parent="sliceRight/half2"]
+clip_children = 1
+offset_left = -89.0
+offset_top = -3.0
+offset_right = 86.0
+offset_bottom = 61.0
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceRight/half2/half1"]
+texture_filter = 1
+position = Vector2(89, 3)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8tl6h")
+
+[node name="sliceDown" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+
+[node name="half1" type="CharacterBody2D" parent="sliceDown"]
+script = ExtResource("2_jyxsr")
+
+[node name="half1" type="ColorRect" parent="sliceDown/half1"]
+clip_children = 1
+offset_left = -62.0
+offset_top = 85.0
+offset_right = 113.0
+offset_bottom = 149.0
+rotation = -1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceDown/half1/half1"]
+texture_filter = 1
+position = Vector2(89, 63)
+rotation = 1.5707964
+scale = Vector2(3, 3)
+texture = ExtResource("1_8tl6h")
+
+[node name="half2" type="CharacterBody2D" parent="sliceDown"]
+script = ExtResource("2_jyxsr")
+
+[node name="half1" type="ColorRect" parent="sliceDown/half2"]
+clip_children = 1
+offset_left = 2.0
+offset_top = 82.0
+offset_right = 177.0
+offset_bottom = 146.0
+rotation = -1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceDown/half2/half1"]
+texture_filter = 1
+position = Vector2(86, 1)
+rotation = 1.5707964
+scale = Vector2(3, 3)
+texture = ExtResource("1_8tl6h")
+
+[node name="Area2DSide" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSide"]
+shape = SubResource("RectangleShape2D_8tl6h")
+
+[node name="Area2DMiddle" type="Area2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DMiddle"]
+position = Vector2(-1, 4.371139e-08)
+shape = SubResource("RectangleShape2D_8tl6h")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="area_entered" from="Area2DSide" to="." method="_on_area_2d_side_area_entered"]
+[connection signal="area_entered" from="Area2DMiddle" to="." method="_on_area_2d_middle_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
