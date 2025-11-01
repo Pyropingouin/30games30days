@@ -1,4 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bang0cecag7kl"]
+[gd_scene load_steps=12 format=3 uid="uid://bang0cecag7kl"]
+
+[ext_resource type="Script" uid="uid://b4xnt1kvrk5yr" path="res://game_components/fruitDualGame/cannons.gd" id="1_m6yww"]
+[ext_resource type="Script" uid="uid://twwqrru7xxq" path="res://game_components/fruitDualGame/main.gd" id="1_q0q7n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ywc65"]
 font_size = 30
@@ -141,15 +144,18 @@ offset_bottom = 444.0
 theme_type_variation = &"FlatButton"
 
 [node name="main" type="Node2D" parent="."]
+script = ExtResource("1_q0q7n")
 
 [node name="Area2DSlash" type="Area2D" parent="main" groups=["slash"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main/Area2DSlash"]
 shape = SubResource("CircleShape2D_y5sdv")
+disabled = true
 
 [node name="Line2D" type="Line2D" parent="main"]
 
 [node name="cannons" type="Node2D" parent="main"]
+script = ExtResource("1_m6yww")
 
 [node name="cannon1" type="Node2D" parent="main/cannons"]
 position = Vector2(77, 829)
@@ -171,6 +177,9 @@ position = Vector2(-191, 231)
 
 [node name="cannon7" type="Node2D" parent="main/cannons"]
 position = Vector2(1304, 213)
+
+[node name="Timer" type="Timer" parent="main/cannons"]
+autostart = true
 
 [node name="flash" type="ColorRect" parent="main"]
 visible = false
@@ -384,3 +393,10 @@ offset_top = 381.0
 offset_right = 666.0
 offset_bottom = 442.0
 theme_type_variation = &"FlatButton"
+
+[connection signal="pressed" from="InGameUI/ButtonQuit/ButtonQuit" to="main" method="_on_button_quit_pressed"]
+[connection signal="timeout" from="main/cannons/Timer" to="main/cannons" method="_on_timer_timeout"]
+[connection signal="timeout" from="main/TimerGameLength" to="main" method="_on_timer_game_length_timeout"]
+[connection signal="pressed" from="StartScreen/ButtonPlay/ButtonPlay" to="main" method="_on_button_play_pressed"]
+[connection signal="pressed" from="StartScreen/ButtonQuit/ButtonQuit" to="main" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="GameOverScreen/ButtonQuit/ButtonQuit" to="main" method="_on_button_quit_pressed"]

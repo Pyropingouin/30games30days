@@ -26,8 +26,8 @@ func _on_area_2d_side_area_entered(area: Area2D) -> void:
 		$sliceRight/half2.gravity = 100
 		
 		var fruit_speed = 1000
-		$sliceRight/half1.velocity = Vector2.UP.rotated($sliceRight/half1.global_position) * fruit_speed
-		$sliceRight/half2.velocity = Vector2.DOWN.rotated($sliceRight/half2.global_position) * fruit_speed
+		$sliceRight/half1.velocity = Vector2.UP.rotated($sliceRight/half1.global_rotation) * fruit_speed
+		$sliceRight/half2.velocity = Vector2.DOWN.rotated($sliceRight/half2.global_rotation) * fruit_speed
 
 		$Timer.start()
 		rotation_speed = 0
@@ -42,8 +42,8 @@ func _on_area_2d_middle_area_entered(area: Area2D) -> void:
 		$sliceDown/half2.gravity = 100
 		
 		var fruit_speed = 1000
-		$sliceDown/half1.velocity = Vector2.LEFT.rotated($sliceDown/half1.global_position) * fruit_speed
-		$sliceDown/half2.velocity = Vector2.RIGHT.rotated($sliceDown/half2.global_position) * fruit_speed
+		$sliceDown/half1.velocity = Vector2.LEFT.rotated($sliceDown/half1.global_rotation) * fruit_speed
+		$sliceDown/half2.velocity = Vector2.RIGHT.rotated($sliceDown/half2.global_rotation) * fruit_speed
 	
 		$Timer.start()
 		rotation_speed = 0

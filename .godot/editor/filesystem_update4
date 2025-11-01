@@ -1,0 +1,6 @@
+res://scenes/fruitDualGame.tscn
+res://game_components/fruitDualGame/cannons.gd
+res://game_components/fruitDualGame/main.gd
+res://game_components/fruitDualGame/fruit.gd
+res://game_components/fruitDualGame/cherry.tscn
+res://game_components/fruitDualGame/cherry.gd

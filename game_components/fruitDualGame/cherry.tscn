@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://d0phcvxsvw0gf" path="res://game_components/fruitDualGame/cherry.gd" id="1_pp2jy"]
 [ext_resource type="Texture2D" uid="uid://ckui5my5pm8q8" path="res://art/fruitDualGame/Fruits_Separated/Cherry.png" id="2_pp2jy"]
 
-[sub_resource type="Animation" id="Animation_3k00p"]
-resource_name = "idle"
-
 [sub_resource type="Animation" id="Animation_w4h7b"]
 loop_mode = 1
 tracks/0/type = "value"
@@ -20,6 +17,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.57577664, 0.12310707, 1.4439226e-07, 1), Color(1, 1, 1, 1)]
 }
+
+[sub_resource type="Animation" id="Animation_3k00p"]
+resource_name = "idle"
 
 [sub_resource type="Animation" id="Animation_pp2jy"]
 resource_name = "idle_2"
